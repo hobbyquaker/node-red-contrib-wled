@@ -1,0 +1,29 @@
+{
+  "name": "node-red-contrib-wled",
+  "version": "0.0.1",
+  "description": "Node-RED nodes for WLED",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/node-red-contrib-wled.git"
+  },
+  "keywords": [
+    "wled",
+    "ws2812",
+    "neopixel",
+    "stripe"
+  ],
+  "author": "Sebastian Raff <hobbyquaker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/node-red-contrib-wled/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/node-red-contrib-wled#readme",
+  "dependencies": {
+    "dnssd2": "^1.0.0",
+    "node-fetch": "^2.6.0"
+  }
+}
