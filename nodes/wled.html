@@ -1,0 +1,71 @@
+<script type="text/javascript">
+    RED.nodes.registerType('wled',{
+        category: 'wled',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value: ''},
+            address: {value: ''},
+            interval: {value: 0}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'wled.png',
+        label: function() {
+            return this.name || 'wled';
+        },
+        oneditprepare() {
+            $('#discover').click(() => {
+                $('#discover').hide();
+                $('#spinner').show();
+                fetch('wled/discover').then(res => res.json()).then(data => {
+                    $('#spinner').hide();
+                    $('#discover').show();
+                    $('#node-input-select-device').html('<option></option>');
+                    data.forEach(device => {
+                        $('#node-input-select-device').append(`<option value="${device.address}">${device.name}</option>`);
+                    });
+
+                    $('#node-input-address').hide();
+                    $('#node-input-select-device').show();
+
+                }).catch(() => {
+                    $('#spinner').hide();
+                    $('#discover').show();
+                });
+            });
+
+            $('#node-input-select-device').change(() => {
+                $('#node-input-name').val($('#node-input-select-device').find('option:selected').html());
+                $('#node-input-address').val($('#node-input-select-device').val())
+            });
+        },
+        oneditsave() {
+
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="wled">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-address"><i class="icon-tag"></i> WLED</label>
+        <input type="text" id="node-input-address" style="width: calc(70% - 38px);">
+        <select id="node-input-select-device" style="width: calc(70% - 38px); display: none;"></select>
+        <button id="discover" class="editor-button">
+            <i class="fa fa-search"></i>
+        </button>
+        <img id="spinner" src="red/images/spin.svg" style="margin: auto; display: none;">
+    </div>
+     <div class="form-row">
+        <label for="node-input-interval"><i class="icon-tag"></i> Polling Interval</label>
+        <input type="number" id="node-input-interval">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="wled">
+    <p></p>
+</script>
