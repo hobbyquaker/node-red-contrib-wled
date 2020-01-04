@@ -42,8 +42,8 @@ module.exports = function (RED) {
                         this.wled.setState({seg: [{fx: this.wled.effects.indexOf(msg.payload)}]}).then(done).catch(err => done(err.message));
                     } else if (this.wled.palettes.includes(msg.payload)) {
                         this.wled.setState({seg: [{pal: this.wled.palettes.indexOf(msg.payload)}]}).then(done).catch(err => done(err.message));
-                    } else if (this.wled.match(/^ps[0-9]+$/)) {
-
+                    } else if (msg.payload.match(/^\d+$/)) {
+                        this.wled.setState({ps: parseInt(msg.payload, 10)}).then(done).catch(err => done(err.message));
                     }
                 }
             });
