@@ -4,7 +4,8 @@
   "description": "Node-RED nodes for WLED",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo",
+    "lintfix": "xo --fix"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,37 @@
     "nodes": {
       "wled": "nodes/wled.js"
     }
+  },
+  "devDependencies": {
+    "eslint-plugin-html": "^6.0.0",
+    "xo": "^0.25.3"
+  },
+  "xo": {
+    "space": 4,
+    "plugin": "html",
+    "global": [
+      "$",
+      "RED",
+      "window",
+      "document",
+      "fetch"
+    ],
+    "extensions": [
+      "js",
+      "html"
+    ],
+    "rules": {
+      "capitalized-comments": 0,
+      "spaced-comment": 0,
+      "unicorn/catch-error-name": 0,
+      "no-unused-expressions": "warn",
+      "no-await-in-loop": "warn",
+      "unicorn/prefer-string-slice": "warn",
+      "require-atomic-updates": "warn",
+      "unicorn/no-nested-ternary": "warn",
+      "promise/prefer-await-to-then": "warn",
+      "prefer-named-capture-group": "warn"
+    },
+    "ignore": []
   }
 }
