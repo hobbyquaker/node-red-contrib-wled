@@ -26,6 +26,10 @@ module.exports = function (RED) {
                 this.status({fill: 'green', shape: 'dot', text: 'connected'});
             });
 
+            this.wled.on('disconnected', () => {
+                this.status({fill: 'red', shape: 'dot', text: 'disconnected'});
+            });
+
             this.on('input', (msg, send, done) => {
                 if (typeof msg.payload === 'boolean') {
                     this.wled.setState({on: msg.payload}).then(done).catch(err => done(err.message));
