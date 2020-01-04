@@ -67,5 +67,19 @@
 </script>
 
 <script type="text/x-red" data-help-name="wled">
-    <p></p>
+<h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">boolean | number | string | object</span>
+        </dt>
+        <dd>
+            <ul>
+                <li><b>boolean</b> <code>true</code>/<code>false</code> to switch on and off</li>
+                <li><b>number</b> <code>0</code>-<code>255</code> to set brightness</li>
+                <li><b>string</b> the name of an effect or a palette (see <a href="https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes" target="_blank">List of effects and palettes</a>)</li>
+                <li><b>string</b> the number of a preset</li>
+                <li><b>object</b> state to post to the <code>/json/state</code> endpoint (see <a href="https://github.com/Aircoookie/WLED/wiki/JSON-API#setting-new-values" target="_blank">JSON API docs</a>)</li>
+            </ul>
+        </dd>
+    </dl>
 </script>
