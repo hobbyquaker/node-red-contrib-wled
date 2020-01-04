@@ -8,7 +8,7 @@
 
 __[Node-RED](https://nodered.org/) nodes to control the fabulous [WLED](https://github.com/Aircoookie/WLED)__
 
-Requires WLED >= 0.9
+Requires WLED >= 0.9 and Node-RED >= 1.0
 
 
 ## Todo
