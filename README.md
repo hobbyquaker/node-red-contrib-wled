@@ -14,4 +14,7 @@ Requires WLED >= 0.9
 
 ## License
 
-MIT (c) Sebastian Raff
+MIT (c) 2020 Sebastian Raff
+
+[mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat
+[mit-url]: LICENSE
