@@ -49,5 +49,5 @@ module.exports = function (RED) {
             });
         }
     }
-    RED.nodes.registerType("wled", WledNode);
+    RED.nodes.registerType('wled', WledNode);
 };

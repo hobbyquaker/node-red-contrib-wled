@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('wled',{
+    RED.nodes.registerType('wled', {
         category: 'wled',
         color: '#3FADB5',
         defaults: {
@@ -10,7 +10,7 @@
         inputs: 1,
         outputs: 0,
         icon: 'wled.png',
-        label: function() {
+        label() {
             return this.name || 'wled';
         },
         oneditprepare() {
@@ -27,7 +27,6 @@
 
                     $('#node-input-address').hide();
                     $('#node-input-select-device').show();
-
                 }).catch(() => {
                     $('#spinner').hide();
                     $('#discover').show();
@@ -36,11 +35,8 @@
 
             $('#node-input-select-device').change(() => {
                 $('#node-input-name').val($('#node-input-select-device').find('option:selected').html());
-                $('#node-input-address').val($('#node-input-select-device').val())
+                $('#node-input-address').val($('#node-input-select-device').val());
             });
-        },
-        oneditsave() {
-
         }
     });
 </script>
